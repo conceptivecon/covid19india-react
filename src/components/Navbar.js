@@ -60,7 +60,7 @@ function Navbar({
 
       <div className="navbar-middle">
         <Link to="/" onClick={setExpand.bind(this, false)}>
-          Covid19<span>India</span>
+          Covid19<span>covid19.org.in</span>
         </Link>
       </div>
 
@@ -82,16 +82,7 @@ function Navbar({
                 <Home {...activeNavIcon('/')} />
               </span>
             </Link>
-            <Link to="/blog">
-              <span>
-                <Book {...activeNavIcon('/blog')} />
-              </span>
-            </Link>
-            <Link to="/about">
-              <span>
-                <HelpCircle {...activeNavIcon('/about')} />
-              </span>
-            </Link>
+
             <span>
               <SunMoon {...{darkMode}} />
             </span>
@@ -143,10 +134,6 @@ function Expand({pages, setExpand, darkMode, windowSize}) {
       })}
 
       {windowSize.width < 768 && <SunMoon {...{darkMode}} />}
-
-      <div className="expand-bottom">
-        <h5>{t('A crowdsourced initiative.')}</h5>
-      </div>
     </div>
   );
 }

@@ -8,9 +8,12 @@ import {fetcher, getStatistic, retry} from '../utils/commonFunctions';
 import {HeartIcon} from '@primer/octicons-react';
 import classnames from 'classnames';
 import {useState, useRef, lazy, Suspense} from 'react';
+import {Moon, Sun} from 'react-feather';
 import {Helmet} from 'react-helmet';
-import {useLocation} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import {useLocalStorage, useSessionStorage, useWindowSize} from 'react-use';
+
+
 
 const Actions = lazy(() => retry(() => import('./Actions')));
 const Footer = lazy(() => retry(() => import('./Footer')));
@@ -77,6 +80,9 @@ function Home() {
         />
       </Helmet>
 
+      <div className="main-header" style={{height: '50px'}}>
+
+      </div>
       <div className="Home">
         <div className={classnames('home-left', {expanded: expandTable})}>
           <div className="header">
@@ -124,15 +130,6 @@ function Home() {
               )}
             </>
           </div>
-
-          <a
-            href="https://life.coronasafe.network"
-            target="_noblank"
-            className="essentials fadeInUp"
-          >
-            <HeartIcon />
-            Crowdsourced Resources
-          </a>
 
           {!hideVaccinated && <LevelVaccinated data={data['TT']} />}
 
@@ -214,3 +211,8 @@ function Home() {
 }
 
 export default Home;
+const activeNavIcon = (path) => ({
+  style: {
+    stroke: window.location.pathname === path ? '#4c75f2' : '',
+  },
+});
