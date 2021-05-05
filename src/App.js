@@ -31,13 +31,13 @@ const App = () => {
       pageLink: '/blog',
       view: Blog,
       displayName: 'Blog',
-      showInNavbar: true,
+      showInNavbar: false,
     },
     {
       pageLink: '/about',
       view: About,
       displayName: 'About',
-      showInNavbar: true,
+      showInNavbar: false,
     },
     {
       pageLink: '/resources',
@@ -69,7 +69,6 @@ const App = () => {
           {...{showLanguageSwitcher, setShowLanguageSwitcher}}
         />
       </Suspense>
-
       <Navbar
         pages={pages}
         {...{darkMode}}
